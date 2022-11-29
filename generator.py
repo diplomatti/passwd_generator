@@ -1,7 +1,22 @@
 import secrets
 import string
+from pyfiglet import Figlet
 
-
+f = Figlet(font='cybermedium')
+print(f.renderText("password\ngenerator"))
+print("-------------------------------------------")
+print()
+print("Pick from number 1 to 3 what you want to include in your passwrd")
+print("After selecting proceed to print the password with number 4.")
+print()
+print("1 = Letters")
+print("2 = Digits")
+print("3 = Characters")
+print()
+print("4 = CONTINUE")
+print()
+print()
+print()
 letters = string.ascii_letters
 digits = string.digits
 characters = string.punctuation
