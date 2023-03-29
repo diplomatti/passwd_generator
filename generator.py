@@ -1,52 +1,44 @@
 import secrets
 import string
-from pyfiglet import Figlet
 
-f = Figlet(font='cybermedium')
-print(f.renderText("password\ngenerator"))
-print("-------------------------------------------")
+running = True
+
 print()
-print("Pick from number 1 to 3 what you want to include in your passwrd")
-print("After selecting proceed to print the password with number 4.")
+print("------------------------")
+print("~ passwd_generator v0.2~")
+print("------------------------")
 print()
-print("1 = Letters")
-print("2 = Digits")
-print("3 = Characters")
-print()
-print("4 = CONTINUE")
-print()
-print()
-print()
-letters = string.ascii_letters
-digits = string.digits
-characters = string.punctuation
-
-alphabet = letters + digits + characters
 
 
+while running:
 
-passwd_length = 15
 
+    letters = string.ascii_letters
+    digits = string.digits
+    characters = string.punctuation
 
-pwd = ''
+    passwd_length = 15
+    alphabet = letters + digits + characters
+    pwd = alphabet
 
-while True:
-    choice = int(input("Pick a number:\n"))
+    password = []
+    
+    choice = (int(input("What you want to do?\n1. Generate password\n2. Exit program\n")))
+    print()
+
     if choice == 1:
-        pwd += string.ascii_letters
+        for i in range(passwd_length):
+            randomchar = secrets.choice(pwd)
+            password.append(randomchar)
+            
+        print("Your super secret password is: " + "".join(password))
+        print("-------------------------------------------------")
+        print()
+        continue
+
     elif choice == 2:
-        pwd += string.digits
-    elif choice == 3:
-        pwd += string.punctuation
-    elif choice == 4:
-        break
-    else:
-        print("Please pic a valid option")
+        running = False
 
-password = []
+print()
+print("Thank you for using passwd_generator")
 
-for i in range(passwd_length):
-    randomchar = secrets.choice(pwd)
-    password.append(randomchar)
-
-print("The random password is: " + "".join(password))
